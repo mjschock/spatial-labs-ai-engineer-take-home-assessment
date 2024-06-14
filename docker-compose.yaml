@@ -1,0 +1,10 @@
+services:
+  postgres:
+    environment:
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:-secretpgpassword}
+    image: pgvector/pgvector:pg16
+    ports:
+      - '5432:5432'
+    restart: always
+    volumes:
+      - ./data/db:/var/lib/postgresql/data
