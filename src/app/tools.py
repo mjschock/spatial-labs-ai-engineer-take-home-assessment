@@ -22,7 +22,7 @@ class Product(BaseModel):
     name: str
     # image_url: str
     price: str|float
-    caption: str
+    caption: Optional[str] = None
     classification: str
     color: str
     item_type: str

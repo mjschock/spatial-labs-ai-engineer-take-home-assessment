@@ -18,8 +18,6 @@ class CustomerAssistant(Assistant):
 
         thread = Thread(id=thread_id)
         messages = thread.get_messages()
-        messages
-
         last_message = messages[-1]
         last_message_content_text_value = last_message.content[-1].text.value
 
