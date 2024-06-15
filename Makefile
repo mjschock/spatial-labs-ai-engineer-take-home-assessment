@@ -1,12 +1,11 @@
 SHELL := /usr/bin/env bash
 
 default:
-	poetry install
+	poetry install && \
+	mkdir -p ~/.marvin/cli/assistants
 
-install:
-	source .venv/bin/activate && \
-		marvin assistant register --overwrite -n "Customer Assistant" src/app/assistants.py:customer_assistant
+install: default
+	poetry run marvin assistant register -n "Customer Assistant" --overwrite src/app/assistants.py:customer_assistant
 
-run:
-	source .venv/bin/activate && \
-		marvin assistant chat -a "Customer Assistant"
+run: install
+	poetry run marvin assistant chat -a "Customer Assistant"
