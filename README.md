@@ -15,4 +15,4 @@
 
 ## Video Demo
 
-![demo](./data/demo.gif)
+<video src='./data/demo.mp4' controls width='100%' height='100%' />

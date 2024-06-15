@@ -174,13 +174,19 @@ def get_products(
             value=min_rating,
         ))
 
+    if name is not None:
+        metadata["name"] = name
+
+    if style is not None:
+        metadata["style"] = style
+
     metadata_filters = MetadataFilters(
         filters=filters,
         condition=FilterCondition.AND,
     )
 
-    # retriever = index.as_retriever(
     retriever = get_index().as_retriever(
+        doc_ids=_ids,
         filters=metadata_filters,
         image_similarity_top_k=image_similarity_top_k,
         similarity_top_k=text_similarity_top_k,

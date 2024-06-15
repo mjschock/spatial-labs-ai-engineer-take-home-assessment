@@ -8,4 +8,4 @@ install: default
 	poetry run marvin assistant register -n "Customer Assistant" --overwrite src/app/assistants.py:customer_assistant
 
 run: install
-	poetry run marvin assistant chat -a "Customer Assistant"
+	poetry run marvin assistant chat -a "Customer Assistant" 2>/dev/null
