@@ -15,4 +15,4 @@
 
 ## Video Demo
 
-<video src='./data/demo.mp4' controls width='100%' height='100%' />
+https://github.com/mjschock/spatial-labs-ai-engineer-take-home-assessment/assets/1357197/2941d20a-d4b4-416b-a248-8677c96ed7ab
