@@ -21,7 +21,7 @@ class Product(BaseModel):
     _id: str
     name: str
     # image_url: str
-    price: str|float
+    price: str|float # TODO: use price_USD_high and price_USD_low instead?
     caption: Optional[str] = None
     classification: str
     color: str
@@ -144,12 +144,13 @@ def get_products(
     if materials is not None:
         metadata["materials"] = materials
 
-    # if max_price is not None:
-    #     filters.append(MetadataFilter(
-    #         key="price",
-    #         operator=FilterOperator.LTE,
-    #         value=max_price,
-    #     ))
+    if max_price is not None:
+        filters.append(MetadataFilter(
+            # key="price",
+            key="price_USD_high", # assuming price is in USD
+            operator=FilterOperator.LTE,
+            value=max_price,
+        ))
 
     if max_rating is not None:
         filters.append(MetadataFilter(
@@ -158,12 +159,13 @@ def get_products(
             value=max_rating,
         ))
 
-    # if min_price is not None:
-    #     filters.append(MetadataFilter(
-    #         key="price",
-    #         operator=FilterOperator.GTE,
-    #         value=min_price,
-    #     ))
+    if min_price is not None:
+        filters.append(MetadataFilter(
+            # key="price",
+            key="price_USD_low", # assuming price is in USD
+            operator=FilterOperator.GTE,
+            value=min_price,
+        ))
 
     if min_rating is not None:
         filters.append(MetadataFilter(
